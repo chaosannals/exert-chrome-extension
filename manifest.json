@@ -1,0 +1,77 @@
+{
+    "manifest_version": 2,
+    "name": "exert-chrome-extension",
+    "version": "0.1.0",
+    "description": "yet a Chrome extension",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "background": {
+        "page": "view/background.html"
+    },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "ECE",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "main/common.js"
+            ],
+            "css": [
+                "main/common.css"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*/*.png",
+                "*://*/*.jpg",
+                "*://*/*.gif",
+                "*://*/*.bmp"
+            ],
+            "js": [
+                "main/show-image-size.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://localhost/*"
+            ],
+            "js": [
+                "main/local.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "notifications",
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "web_accessible_resources": [
+        "main/*.js"
+    ],
+    "homepage_url": "https://github.com/chaosannals/exert-chrome-extension",
+    "chrome_url_overrides": {
+        "newtab": "view/newtab.html"
+    },
+    "options_ui": {
+        "page": "view/options.html",
+        "chrome_style": true
+    },
+    "omnibox": {
+        "keyword": "exert-chrome-extension"
+    },
+    "devtools_page": "devtools.html"
+}

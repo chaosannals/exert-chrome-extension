@@ -1,0 +1,17 @@
+{
+  "name": "exert-chrome-extension",
+  "version": "1.0.0",
+  "description": "yet a exert chrome extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": {
+    "name": "chaosannals",
+    "email": "chaosannals@outlook.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
